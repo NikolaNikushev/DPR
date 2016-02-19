@@ -7,6 +7,7 @@ C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyP
 C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.csprojResolveAssemblyReference.cache
 C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.dll
 C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.pdb
+<<<<<<< Updated upstream
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\ScheduleTypeTests.dll
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\ScheduleTypeTests.pdb
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
@@ -16,3 +17,14 @@ G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debu
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.csprojResolveAssemblyReference.cache
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.dll
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.pdb
+=======
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\ScheduleTypeTests.dll
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\ScheduleTypeTests.pdb
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\StrategyPattern.exe
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\StrategyPattern.pdb
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.csprojResolveAssemblyReference.cache
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.dll
+C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.pdb
+>>>>>>> Stashed changes

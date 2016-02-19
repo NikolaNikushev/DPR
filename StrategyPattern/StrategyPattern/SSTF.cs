@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StrategyPattern
 {
-    class SSTF : IScheduleType
+    public class SSTF : IScheduleType
     {
         public void ScheduleRequests(int header, int[] requests, out int seekTime, out List<int> scheduledRequest)
         {
@@ -21,7 +21,7 @@ namespace StrategyPattern
                 {
                     temp[i] = requests[i];
                 }
-                temp[requests.Length + 1] = header;
+                temp[requests.Length] = header;
                 requests = temp;
             }
             else
@@ -29,8 +29,8 @@ namespace StrategyPattern
                 scheduledRequest.Add(header);
             }
             //Merge sort
-            Utility.MergeSort(ref requests, 0, requests.Length / 2, requests.Length);
-            //Step 1 Find closest to header
+            Utility.MergeSort_Recursive(ref requests, 0, requests.Length - 1);
+
 
             List<int> resultsFromSched = requests.ToList();
             while (resultsFromSched.Count > 0)
@@ -41,29 +41,58 @@ namespace StrategyPattern
                     if (resultsFromSched[i] == header)
                     {
                         indexOfElement = i;
+                        //header = resultsFromSched[indexOfElement];
+                        break;
                     }
                 }
 
-                
+
                 //Find Closest to header
-                header = resultsFromSched[indexOfElement];
-                int left = resultsFromSched[indexOfElement - 1];
-                int right = resultsFromSched[indexOfElement + 1];
-                if (Math.Abs(header - left) > Math.Abs(header - right))
+                int left = -1;
+                int right = -1;
+                if (resultsFromSched.Count <= 1)
                 {
+                    //scheduledRequest.Add(resultsFromSched[indexOfElement]);
+                    resultsFromSched.RemoveAt(indexOfElement);
+                    break;
+                }
+
+                if (indexOfElement + 1 > resultsFromSched.Count)
+                {
+
+
+                    left = resultsFromSched[indexOfElement - 1];
+                    scheduledRequest.Add(left);
+                    resultsFromSched.RemoveAt(indexOfElement - 1);
+
+
+                }
+                else if (indexOfElement - 1 < 0)
+                {
+                    right = resultsFromSched[indexOfElement + 1];
                     scheduledRequest.Add(right);
-                    header = right;
                     resultsFromSched.RemoveAt(indexOfElement + 1);
                 }
                 else
                 {
-                    scheduledRequest.Add(left);
-                    header = left;
-                    resultsFromSched.RemoveAt(indexOfElement - 1);
+                    left = resultsFromSched[indexOfElement - 1];
+                    right = resultsFromSched[indexOfElement + 1];
+                    if (Math.Abs(header - left) > Math.Abs(header - right))
+                    {
+                        scheduledRequest.Add(right);
+                        header = right;
+                        resultsFromSched.RemoveAt(indexOfElement);
+                    }
+                    else
+                    {
+                        scheduledRequest.Add(left);
+                        header = left;
+                        resultsFromSched.RemoveAt(indexOfElement);
+                    }
                 }
             }
-            
-           
+
+
 
         }
     }

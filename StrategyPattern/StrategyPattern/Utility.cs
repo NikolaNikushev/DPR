@@ -10,7 +10,7 @@ namespace StrategyPattern
     {
         static public void MergeSort(ref int[] numbers, int left, int mid, int right)
         {
-            int[] temp = new int[25];
+            int[] temp = new int[numbers.Length];
             int i, left_end, num_elements, tmp_pos;
 
             left_end = (mid - 1);
@@ -35,6 +35,19 @@ namespace StrategyPattern
             {
                 numbers[right] = temp[right];
                 right--;
+            }
+        }
+        static public void MergeSort_Recursive(ref int[] numbers, int left, int right)
+        {
+            int mid;
+
+            if (right > left)
+            {
+                mid = (right + left) / 2;
+                MergeSort_Recursive(ref numbers, left, mid);
+                MergeSort_Recursive(ref numbers, (mid + 1), right);
+
+                MergeSort(ref numbers, left, (mid + 1), right);
             }
         }
     }
