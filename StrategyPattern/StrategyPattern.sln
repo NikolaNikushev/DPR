@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyPattern", "StrategyPattern\StrategyPattern.csproj", "{23F86A5F-E4FD-4095-94B9-43A3292FE03C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleTypeTests", "ScheduleTypeTests\ScheduleTypeTests.csproj", "{145D9633-8485-4369-8483-85BF5739C9CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23F86A5F-E4FD-4095-94B9-43A3292FE03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F86A5F-E4FD-4095-94B9-43A3292FE03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F86A5F-E4FD-4095-94B9-43A3292FE03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F86A5F-E4FD-4095-94B9-43A3292FE03C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{145D9633-8485-4369-8483-85BF5739C9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{145D9633-8485-4369-8483-85BF5739C9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145D9633-8485-4369-8483-85BF5739C9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{145D9633-8485-4369-8483-85BF5739C9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

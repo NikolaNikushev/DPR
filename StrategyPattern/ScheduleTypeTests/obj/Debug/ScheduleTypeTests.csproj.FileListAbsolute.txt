@@ -1,0 +1,9 @@
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\bin\Debug\ScheduleTypeTests.dll
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\bin\Debug\ScheduleTypeTests.pdb
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\bin\Debug\StrategyPattern.exe
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\bin\Debug\StrategyPattern.pdb
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.csprojResolveAssemblyReference.cache
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.dll
+C:\Users\Lyubomir\OneDrive\University\DPR\Assignments\Strategy pattern\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.pdb

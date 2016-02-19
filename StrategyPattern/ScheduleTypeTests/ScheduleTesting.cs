@@ -1,0 +1,40 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StrategyPattern;
+using System.Collections.Generic;
+
+namespace ScheduleTypeTests
+{
+    [TestClass]
+    public class ScheduleTesting
+    {
+        [TestMethod]
+        public void FCFS()
+        {
+            int[] requests = new int[]
+            {
+                7,15,33,47,8,29,48,90,13
+            };
+            int header = 50;
+            OS FCFS = new OS(new FCFS(), header, requests);
+
+            FCFS.scheduleRequest();
+            List<int> result = FCFS.ScheduledRequests;
+
+            List<int> expectedResult = new List<int>()
+            {
+                7,15,33,47,8,29,48,90,13
+            };
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                Assert.AreEqual(expectedResult[i], result[i]);
+            }
+            int expectedSeek = 281;
+            int actualSeek = FCFS.LastSeekTime;
+            //Seek time check
+            Assert.AreEqual(expectedSeek, actualSeek);
+
+        }
+    }
+}
