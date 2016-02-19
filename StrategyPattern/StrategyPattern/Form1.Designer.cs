@@ -33,10 +33,12 @@
             this.rbFCFS = new System.Windows.Forms.RadioButton();
             this.rbSSTF = new System.Windows.Forms.RadioButton();
             this.rbSCAN = new System.Windows.Forms.RadioButton();
-            this.tbReq = new System.Windows.Forms.TrackBar();
+            this.trackBarRequest = new System.Windows.Forms.TrackBar();
             this.btnRun = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.tbReq)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbCurrentRequest = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRequest)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGnrtReq
@@ -51,10 +53,11 @@
             // 
             // lbRequests
             // 
+            this.lbRequests.Enabled = false;
             this.lbRequests.FormattingEnabled = true;
-            this.lbRequests.Location = new System.Drawing.Point(345, 32);
+            this.lbRequests.Location = new System.Drawing.Point(412, 36);
             this.lbRequests.Name = "lbRequests";
-            this.lbRequests.Size = new System.Drawing.Size(200, 342);
+            this.lbRequests.Size = new System.Drawing.Size(133, 342);
             this.lbRequests.TabIndex = 1;
             // 
             // rbFCFS
@@ -90,16 +93,16 @@
             this.rbSCAN.Text = "SCAN";
             this.rbSCAN.UseVisualStyleBackColor = true;
             // 
-            // tbReq
+            // trackBarRequest
             // 
-            this.tbReq.Enabled = false;
-            this.tbReq.LargeChange = 1;
-            this.tbReq.Location = new System.Drawing.Point(197, 32);
-            this.tbReq.Maximum = 100;
-            this.tbReq.Name = "tbReq";
-            this.tbReq.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tbReq.Size = new System.Drawing.Size(45, 493);
-            this.tbReq.TabIndex = 5;
+            this.trackBarRequest.LargeChange = 1;
+            this.trackBarRequest.Location = new System.Drawing.Point(200, 30);
+            this.trackBarRequest.Maximum = 100;
+            this.trackBarRequest.Name = "trackBarRequest";
+            this.trackBarRequest.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBarRequest.Size = new System.Drawing.Size(45, 500);
+            this.trackBarRequest.TabIndex = 5;
+            this.trackBarRequest.Scroll += new System.EventHandler(this.trackBarRequest_Scroll);
             // 
             // btnRun
             // 
@@ -120,22 +123,42 @@
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(66, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Current request";
+            // 
+            // tbCurrentRequest
+            // 
+            this.tbCurrentRequest.Enabled = false;
+            this.tbCurrentRequest.Location = new System.Drawing.Point(162, 6);
+            this.tbCurrentRequest.Name = "tbCurrentRequest";
+            this.tbCurrentRequest.Size = new System.Drawing.Size(100, 20);
+            this.tbCurrentRequest.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 537);
+            this.Controls.Add(this.tbCurrentRequest);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnRun);
-            this.Controls.Add(this.tbReq);
             this.Controls.Add(this.rbSCAN);
             this.Controls.Add(this.rbSSTF);
             this.Controls.Add(this.rbFCFS);
             this.Controls.Add(this.lbRequests);
             this.Controls.Add(this.btnGnrtReq);
+            this.Controls.Add(this.trackBarRequest);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.tbReq)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRequest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,9 +171,11 @@
         private System.Windows.Forms.RadioButton rbFCFS;
         private System.Windows.Forms.RadioButton rbSSTF;
         private System.Windows.Forms.RadioButton rbSCAN;
-        private System.Windows.Forms.TrackBar tbReq;
+        private System.Windows.Forms.TrackBar trackBarRequest;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbCurrentRequest;
     }
 }
 

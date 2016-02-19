@@ -13,35 +13,38 @@ namespace StrategyPattern
         List<int> scheduledRequests;
         int[] requests;
         int seekTime;
-        
-
-        public List<int> ScheduledRequests { get { return scheduledRequests; } }
-
-        public int LastSeekTime { get { return seekTime; } }
 
         private IScheduleType scheduleType;
         //properties
 
+        public int LastSeekTime
+        {
+            get
+            {
+                return seekTime;
+            }
+        }
+
+        public List<int> ScheduledRequests
+        {
+            get
+            {
+                return scheduledRequests;
+            }
+        }
+
         //Constructor
-        public OS(IScheduleType p_scheduleType,int p_header, int[] p_requests)
+        public OS(IScheduleType p_scheduleType, int p_header, int[] p_requests)
         {
             scheduleType = p_scheduleType;
             header = p_header;
             requests = p_requests;
         }
 
-        
-
-
         public void scheduleRequest()
         {
             seekTime = 0;
-            scheduleType.ScheduleRequests(header, requests,out seekTime, out scheduledRequests);
+            scheduleType.ScheduleRequests(header, requests, out seekTime, out scheduledRequests);
         }
-
-
-
-
-        
     }
 }
