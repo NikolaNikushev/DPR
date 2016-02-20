@@ -58,6 +58,11 @@ namespace ScheduleTypeTests
             {
                 Assert.AreEqual(expectedResult[i], result[i]);
             }
+
+            int actualSeek = SSTF.LastSeekTime;
+            int expectedSeek = 126;
+
+            Assert.AreEqual(expectedSeek, actualSeek);
             //int expectedSeek = 281;
             //int actualSeek = SSTF.LastSeekTime;
             //Seek time check

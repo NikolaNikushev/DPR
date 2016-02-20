@@ -51,7 +51,7 @@ namespace StrategyPattern
 
             Label l = new Label();
 
-            int y = 5 * value + 30;
+            int y = 500 - (5 * value) + 30;
             l.Location = new Point(250, y);
             l.Width = 100;
             l.Text = value.ToString();

@@ -8,7 +8,8 @@ namespace StrategyPattern
 {
     public class SSTF : IScheduleType
     {
-        public void ScheduleRequests(int header, int[] requests, out int seekTime, out List<int> scheduledRequest )
+
+        public void ScheduleRequests(int header, int[] requests, out int seekTime, out List<int> scheduledRequest)
         {
             scheduledRequest = new List<int>();
             seekTime = 0;
@@ -51,7 +52,7 @@ namespace StrategyPattern
                 int right = -1;
                 if (resultsFromSched.Count <= 1)
                 {
-                    
+
                     resultsFromSched.RemoveAt(indexOfElement);
                     break;
                 }
@@ -59,11 +60,11 @@ namespace StrategyPattern
                 if (indexOfElement + 1 > resultsFromSched.Count)
                 {
 
-
+                    
                     left = resultsFromSched[indexOfElement - 1];
                     scheduledRequest.Add(left);
                     resultsFromSched.RemoveAt(indexOfElement - 1);
-
+                    seekTime += Math.Abs(header - left);
 
                 }
                 else if (indexOfElement - 1 < 0)
@@ -71,6 +72,7 @@ namespace StrategyPattern
                     right = resultsFromSched[indexOfElement + 1];
                     scheduledRequest.Add(right);
                     resultsFromSched.RemoveAt(indexOfElement + 1);
+                    seekTime += Math.Abs(header - right);
                 }
                 else
                 {
@@ -78,21 +80,31 @@ namespace StrategyPattern
                     right = resultsFromSched[indexOfElement + 1];
                     if (Math.Abs(header - left) > Math.Abs(header - right))
                     {
-                        scheduledRequest.Add(right);
-                        header = right;
-                        resultsFromSched.RemoveAt(indexOfElement);
+
+                        UpdateHeaderAndAddRequest(ref header, right, ref scheduledRequest, ref seekTime);
                     }
                     else
                     {
-                        scheduledRequest.Add(left);
-                        header = left;
-                        resultsFromSched.RemoveAt(indexOfElement);
+
+                        UpdateHeaderAndAddRequest(ref header, left, ref scheduledRequest, ref seekTime);
+
                     }
+                    resultsFromSched.RemoveAt(indexOfElement);
+                   
                 }
             }
 
 
 
+        }
+
+
+        private void UpdateHeaderAndAddRequest(ref int header, int value, ref List<int> requestsList, ref int seekTime)
+        {
+            requestsList.Add(value);
+            seekTime += Math.Abs(header - value);
+
+            header = value;
         }
     }
 }
