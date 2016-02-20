@@ -17,10 +17,10 @@ namespace StrategyPattern
         List<int> generatedRequest;
         int header;
         int totalCylinders;
-        OS currentOs;
-        OS FCFS;
-        OS SSTF;
-        OS SCAN;
+        OS currentOs; //Used to specify the current operational system that is being used 
+       // OS FCFS;
+       // OS SSTF;
+       // OS SCAN;
 
         Label[] labelsList = new Label[101];
         public Form1()
@@ -95,29 +95,34 @@ namespace StrategyPattern
         {
             FillRandomRequests();
 
-           
-            if (rbFCFS.Enabled == true)
+            //runs the FCFS
+            if (rbFCFS.Checked == true)
             {
                 currentOs = new OS(new FCFS(), header, generatedRequest.ToArray());
-                currentOs.scheduleRequest();
-                tbCurrentRequest.Text = currentOs.ScheduledRequests.ElementAt(0).ToString();
-                foreach (int item in currentOs.ScheduledRequests)
-                {
-                    CreateLabel(item);
-                }
-                Thread t = new Thread(new ThreadStart(this.TrackBarChangeValue));
-
-                t.Start();
+               
 
             }
-            else if (rbSSTF.Enabled == true)
+            //runs the SSTF
+            else if (rbSSTF.Checked == true)
             {
-
+                currentOs = new OS(new SSTF(), header, generatedRequest.ToArray());
             }
-            else if (rbSCAN.Enabled == true)
+            //Runs the RBSCAN
+            else if (rbSCAN.Checked == true) {
+                //throws an array exception index ouf range
+                //todo fix
+
+                currentOs = new OS(new SCAN(), header, generatedRequest.ToArray());
+            }
+            currentOs.scheduleRequest();
+            tbCurrentRequest.Text = currentOs.ScheduledRequests.ElementAt(0).ToString();
+            foreach (int item in currentOs.ScheduledRequests)
             {
-
+                CreateLabel(item);
             }
+            Thread t = new Thread(new ThreadStart(this.TrackBarChangeValue));
+
+            t.Start();
         }
 
         private void TrackBarChangeValue()
@@ -169,7 +174,12 @@ namespace StrategyPattern
 
         private void btnRunForEver_Click(object sender, EventArgs e)
         {
+            //Make call to GenerateRandomRequest after each delete label and update the request 
+        }
 
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            //stop the current disc reading
         }
     }
 }

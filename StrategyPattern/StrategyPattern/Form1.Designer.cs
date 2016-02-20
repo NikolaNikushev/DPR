@@ -64,6 +64,7 @@
             // rbFCFS
             // 
             this.rbFCFS.AutoSize = true;
+            this.rbFCFS.Checked = true;
             this.rbFCFS.Location = new System.Drawing.Point(12, 32);
             this.rbFCFS.Name = "rbFCFS";
             this.rbFCFS.Size = new System.Drawing.Size(51, 17);
@@ -79,7 +80,6 @@
             this.rbSSTF.Name = "rbSSTF";
             this.rbSSTF.Size = new System.Drawing.Size(52, 17);
             this.rbSSTF.TabIndex = 3;
-            this.rbSSTF.TabStop = true;
             this.rbSSTF.Text = "SSTF";
             this.rbSSTF.UseVisualStyleBackColor = true;
             // 
@@ -90,7 +90,6 @@
             this.rbSCAN.Name = "rbSCAN";
             this.rbSCAN.Size = new System.Drawing.Size(54, 17);
             this.rbSCAN.TabIndex = 4;
-            this.rbSCAN.TabStop = true;
             this.rbSCAN.Text = "SCAN";
             this.rbSCAN.UseVisualStyleBackColor = true;
             // 
@@ -123,6 +122,7 @@
             this.btnStop.TabIndex = 7;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // label1
             // 
