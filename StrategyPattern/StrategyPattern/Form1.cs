@@ -15,6 +15,7 @@ namespace StrategyPattern
         RequestGenerator reqGen;
         int[] generatedRequest;
         int header;
+        int totalCylinders;
         OS FCFS;
         OS SSTF;
         OS SCAN;
@@ -25,7 +26,8 @@ namespace StrategyPattern
             InitializeComponent();
             generatedRequest = new int[20];
             header = 50;
-            reqGen = new RequestGenerator(generatedRequest.Length, 0, 99);
+            totalCylinders = 99;
+            reqGen = new RequestGenerator(generatedRequest.Length, 0, totalCylinders);
 
         }
 

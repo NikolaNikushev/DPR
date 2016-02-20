@@ -28,3 +28,12 @@ C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\
 C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.dll
 C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.pdb
 >>>>>>> Stashed changes
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\ScheduleTypeTests.dll
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\ScheduleTypeTests.pdb
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\StrategyPattern.exe
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\StrategyPattern.pdb
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.csprojResolveAssemblyReference.cache
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.dll
+E:\OneDrive\University\DPR\DPR\StrategyPattern\ScheduleTypeTests\obj\Debug\ScheduleTypeTests.pdb

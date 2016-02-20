@@ -37,3 +37,12 @@ C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\ob
 C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.exe
 C:\Users\Lyubomir\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.pdb
 >>>>>>> Stashed changes
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.exe.config
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.exe
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.pdb
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csprojResolveAssemblyReference.cache
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.Form1.resources
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.Properties.Resources.resources
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csproj.GenerateResource.Cache
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.exe
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.pdb

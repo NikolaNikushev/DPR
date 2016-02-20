@@ -8,7 +8,7 @@ namespace StrategyPattern
 {
     public class SSTF : IScheduleType
     {
-        public void ScheduleRequests(int header, int[] requests, out int seekTime, out List<int> scheduledRequest)
+        public void ScheduleRequests(int header, int[] requests, out int seekTime, out List<int> scheduledRequest )
         {
             scheduledRequest = new List<int>();
             seekTime = 0;
@@ -41,7 +41,6 @@ namespace StrategyPattern
                     if (resultsFromSched[i] == header)
                     {
                         indexOfElement = i;
-                        //header = resultsFromSched[indexOfElement];
                         break;
                     }
                 }
@@ -52,7 +51,7 @@ namespace StrategyPattern
                 int right = -1;
                 if (resultsFromSched.Count <= 1)
                 {
-                    //scheduledRequest.Add(resultsFromSched[indexOfElement]);
+                    
                     resultsFromSched.RemoveAt(indexOfElement);
                     break;
                 }
