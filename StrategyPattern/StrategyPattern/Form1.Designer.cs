@@ -38,6 +38,7 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbCurrentRequest = new System.Windows.Forms.TextBox();
+            this.btnRunForEver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRequest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +107,7 @@
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(12, 177);
+            this.btnRun.Location = new System.Drawing.Point(12, 189);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(133, 38);
             this.btnRun.TabIndex = 6;
@@ -116,7 +117,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(12, 230);
+            this.btnStop.Location = new System.Drawing.Point(12, 277);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(133, 38);
             this.btnStop.TabIndex = 7;
@@ -140,11 +141,22 @@
             this.tbCurrentRequest.Size = new System.Drawing.Size(100, 20);
             this.tbCurrentRequest.TabIndex = 9;
             // 
+            // btnRunForEver
+            // 
+            this.btnRunForEver.Location = new System.Drawing.Point(12, 233);
+            this.btnRunForEver.Name = "btnRunForEver";
+            this.btnRunForEver.Size = new System.Drawing.Size(133, 38);
+            this.btnRunForEver.TabIndex = 10;
+            this.btnRunForEver.Text = "Run continuesly";
+            this.btnRunForEver.UseVisualStyleBackColor = true;
+            this.btnRunForEver.Click += new System.EventHandler(this.btnRunForEver_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 537);
+            this.Controls.Add(this.btnRunForEver);
             this.Controls.Add(this.tbCurrentRequest);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStop);
@@ -176,6 +188,7 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCurrentRequest;
+        private System.Windows.Forms.Button btnRunForEver;
     }
 }
 
