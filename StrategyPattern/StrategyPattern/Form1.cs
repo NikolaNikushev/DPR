@@ -142,7 +142,7 @@ namespace StrategyPattern
             //loop for all requests untill none left.
             while (currentOs.ScheduledRequests.Count > 0)
             {
-                //execute the disk reading and move the slider with a delay of 30 seconds
+                //execute the disk reading and move the slider with a delay of 30 mseconds
                 Thread.Sleep(30);
                 TrackbarChange();
             }
@@ -302,7 +302,7 @@ namespace StrategyPattern
             else if (rbSCAN.Checked == true)
             {
                 //throws an array exception index ouf range
-                //todo fix
+                
 
                 currentOs = new OS(new SCAN(), header, generatedRequest.ToArray());
             }

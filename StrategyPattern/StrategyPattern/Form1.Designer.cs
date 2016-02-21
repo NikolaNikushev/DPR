@@ -138,7 +138,7 @@
             this.btnRunForEver.Name = "btnRunForEver";
             this.btnRunForEver.Size = new System.Drawing.Size(133, 38);
             this.btnRunForEver.TabIndex = 10;
-            this.btnRunForEver.Text = "Run continuesly";
+            this.btnRunForEver.Text = "Run continually";
             this.btnRunForEver.UseVisualStyleBackColor = true;
             this.btnRunForEver.Click += new System.EventHandler(this.btnRunForEver_Click);
             // 

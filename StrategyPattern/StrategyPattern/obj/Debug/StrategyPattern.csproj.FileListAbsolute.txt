@@ -15,3 +15,4 @@ G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.exe
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.pdb
 G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csprojResolveAssemblyReference.cache
+E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csprojResolveAssemblyReference.cache

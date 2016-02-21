@@ -63,7 +63,6 @@ namespace StrategyPattern
         /// </summary>
         public void ExecuteScheduleRequests()
         {
-
             scheduleType.ScheduleRequests(header, requests, ref seekTime, out scheduledRequests);
         }
 
