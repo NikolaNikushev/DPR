@@ -15,11 +15,11 @@ namespace StrategyPattern
         int seekTime;
 
         private IScheduleType scheduleType; // the type of the system, FCFS/SCAN/SSTF
-        //properties
+                                            //properties
 
-            /// <summary>
-            /// Returns the seek time after executing the requests.
-            /// </summary>
+        /// <summary>
+        /// Returns the seek time after executing the requests.
+        /// </summary>
         public int LastSeekTime
         {
             get
@@ -85,7 +85,7 @@ namespace StrategyPattern
             this.header = value;
         }
 
-     
+
         /// <summary>
         /// Calculates the distance between the head and the first request element that needs to be passed thru 
         /// </summary>
