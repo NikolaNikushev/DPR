@@ -158,9 +158,9 @@
             this.labSeekTime.AutoSize = true;
             this.labSeekTime.Location = new System.Drawing.Point(13, 516);
             this.labSeekTime.Name = "labSeekTime";
-            this.labSeekTime.Size = new System.Drawing.Size(35, 13);
+            this.labSeekTime.Size = new System.Drawing.Size(81, 13);
             this.labSeekTime.TabIndex = 11;
-            this.labSeekTime.Text = "label2";
+            this.labSeekTime.Text = "Request timer...";
             this.labSeekTime.Click += new System.EventHandler(this.labSeekTime_Click);
             // 
             // labCurrentSeek
@@ -168,9 +168,9 @@
             this.labCurrentSeek.AutoSize = true;
             this.labCurrentSeek.Location = new System.Drawing.Point(13, 492);
             this.labCurrentSeek.Name = "labCurrentSeek";
-            this.labCurrentSeek.Size = new System.Drawing.Size(35, 13);
+            this.labCurrentSeek.Size = new System.Drawing.Size(72, 13);
             this.labCurrentSeek.TabIndex = 12;
-            this.labCurrentSeek.Text = "label2";
+            this.labCurrentSeek.Text = "Current time...";
             // 
             // Form1
             // 

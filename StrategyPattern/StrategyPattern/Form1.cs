@@ -166,7 +166,7 @@ namespace StrategyPattern
             else if (header == elementZero)
             {
                 RemoveLabelAndUpdateCurrentRequest(header);
-                this.Invoke(new Action(() => labSeekTime.Text = "Total seek time: " + currentOs.LastSeekTime.ToString()));
+                this.Invoke(new Action(() => labSeekTime.Text = "Time needed for requests: " + currentOs.LastSeekTime.ToString()));
                 if (!runOnce)
                     GenerateNewRequest();
                 if (currentOs.ScheduledRequests.Count == 0)
@@ -262,7 +262,7 @@ namespace StrategyPattern
                 CreateLabel(item);
             }
             labCurrentSeek.Text = "Current seek time : " + seekTimeTracker;
-            this.Invoke(new Action(() => labSeekTime.Text = "Total seek time: " + currentOs.LastSeekTime.ToString()));
+            this.Invoke(new Action(() => labSeekTime.Text = "Time needed for requests: " + currentOs.LastSeekTime.ToString()));
         }
 
         private void btnRunForEver_Click(object sender, EventArgs e)
