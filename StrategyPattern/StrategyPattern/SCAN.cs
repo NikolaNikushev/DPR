@@ -9,6 +9,14 @@ namespace StrategyPattern
     public class SCAN : IScheduleType
     {
         int lastDirection = 0; //0 is down, 1 is up
+
+        /// <summary>
+        /// Generate the requests like an elevator, picking up all toward one direction, and then going to the other direction.
+        /// </summary>
+        /// <param name="header">Start point of the disk </param>
+        /// <param name="requests">The requests that the disk needs to retrieve.</param>
+        /// <param name="seekTime">Ref paramater. The time it took for the process to finish.</param>
+        /// <param name="scheduledRequest">Out param. The list of requests that the needle will pass thru.</param>
         public void ScheduleRequests(int header, int[] requests, ref int seekTime, out List<int> scheduledRequest)
         {
             scheduledRequest = new List<int>();
@@ -35,96 +43,49 @@ namespace StrategyPattern
             //Sort the array
             Utility.MergeSort_Recursive(ref requests, 0, requests.Length - 1);
 
-
-
             List<int> resultsFromSched = requests.ToList(); //using List<int> instead of array
-            //resultsFromSched.Insert(0, 0);
-            //resultsFromSched.Add(99);
+        
             int indexOfHeader = resultsFromSched.IndexOf(header); //the index of the header in the List<int>
 
 
+            //Gets all the elements that are on the left side of the head.
             List<int> leftSide = resultsFromSched.GetRange(0, indexOfHeader);
             leftSide.Reverse();
           
+
+            //if going down, first put all the left side requests.
             if (lastDirection == 0 )
             {
                 scheduledRequest.AddRange(leftSide);
                 scheduledRequest.AddRange(resultsFromSched.GetRange(indexOfHeader + 1, resultsFromSched.Count - leftSide.Count - 1));
             }
+            //if going up, first put all the right side requests.
             if (lastDirection == 1)
             {
                 scheduledRequest.AddRange(resultsFromSched.GetRange(indexOfHeader + 1, resultsFromSched.Count - leftSide.Count - 1));
                 scheduledRequest.AddRange(leftSide);
             }
+            //calculate seek time 
             for (int i = 0; i < scheduledRequest.Count; i++)
             {
                 seekTime += Math.Abs(header - scheduledRequest[i]);
                 header = scheduledRequest[i];
             }
-            /*int direction = 0;
-            while (resultsFromSched.Count > 2)
-            {
-                if (indexOfHeader == 0)
-                {
-                    direction = 1;
-                }
-                else if (indexOfHeader == resultsFromSched.Count - 1)
-                {
-                    direction = 0;
-                }
-
-                while (direction == 0)
-                {
-                    if (indexOfHeader != 1)
-                    {
-                        scheduledRequest.Add(resultsFromSched[indexOfHeader - 1]);
-                        resultsFromSched.RemoveAt(indexOfHeader);
-                        indexOfHeader = indexOfHeader - 1;
-                    }
-                    else
-                    {
-                        resultsFromSched.RemoveAt(indexOfHeader);
-                        indexOfHeader = 0;
-                        break;
-                    }
-
-                }
-                while (direction == 1)
-                {
-                    if (indexOfHeader != resultsFromSched.Count - 2)
-                    {
-                        
-                        if(indexOfHeader == 0)
-                        {
-                            scheduledRequest.Add(resultsFromSched[indexOfHeader + 1]);
-                            indexOfHeader = indexOfHeader + 1;
-                        }
-                        else if(indexOfHeader != 0)
-                        {
-                            scheduledRequest.Add(resultsFromSched[indexOfHeader + 1]);
-                            resultsFromSched.RemoveAt(indexOfHeader);
-                            indexOfHeader = indexOfHeader + 1;
-                        }
-                    }
-                    else
-                    {
-                        resultsFromSched.RemoveAt(indexOfHeader);
-                        indexOfHeader = resultsFromSched.Count - 1;
-                        break;
-                    }
-                }
-            }
-            */
-
-
         }
 
+        /// <summary>
+        /// Changes the direction of the elevator.         
+        /// </summary>
         public void ChangeDirection()
         {
             int direct = this.lastDirection == 0 ?  1 :  0;
             this.lastDirection = direct;
         }
 
+        /// <summary>
+        /// Returns the current direction of the elevator.
+        /// 0 is down, 1 is up.
+        /// </summary>
         public int CurrentDirection
         {
             get { return lastDirection; }

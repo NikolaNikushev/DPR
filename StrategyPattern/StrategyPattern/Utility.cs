@@ -8,6 +8,13 @@ namespace StrategyPattern
 {
     public class Utility
     {
+        /// <summary>
+        /// Merge sort effective and fast
+        /// </summary>
+        /// <param name="numbers">int array</param>
+        /// <param name="left">left possition ( 0 )</param>
+        /// <param name="mid"> max/2</param>
+        /// <param name="right">max-1</param>
         static public void MergeSort(ref int[] numbers, int left, int mid, int right)
         {
             int[] temp = new int[numbers.Length];
@@ -37,6 +44,13 @@ namespace StrategyPattern
                 right--;
             }
         }
+
+        /// <summary>
+        /// Merge Sort using recirsion
+        /// </summary>
+        /// <param name="numbers">int array</param>
+        /// <param name="left">left ( 0 )</param>
+        /// <param name="right">max-1</param>
         static public void MergeSort_Recursive(ref int[] numbers, int left, int right)
         {
             int mid;

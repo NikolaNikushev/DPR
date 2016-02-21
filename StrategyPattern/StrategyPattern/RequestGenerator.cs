@@ -21,7 +21,10 @@ namespace StrategyPattern
             max = p_max;
         }
 
-        //Generating Random Numbers
+        /// <summary>
+        /// Generate random unique numbers
+        /// </summary>
+        /// <returns>An int[]  array with unique random numbers</returns>
         public int[] GenerateRandom()
         {
             if (max <= min || count < 0 || (count > max - min && max - min > 0))
@@ -29,6 +32,7 @@ namespace StrategyPattern
                 throw new ArgumentOutOfRangeException("Range " + min + " to " + max +
                         " (" + ((Int64)max - (Int64)min) + " values), or count " + count + " is illegal");
             }
+            //All possible candidates that are available to be added and are not already added.
             HashSet<int> candidates = new HashSet<int>();
             for (int top = max - count; top < max; top++)
             {
@@ -37,6 +41,7 @@ namespace StrategyPattern
                     candidates.Add(top);
                 }
             }
+            
             int[] result = candidates.ToArray();
             for (int i = result.Length - 1; i > 0; i--)
             {
@@ -48,6 +53,11 @@ namespace StrategyPattern
             return result;
         }
 
+        /// <summary>
+        /// Generates a new random number for the list of requests
+        /// </summary>
+        /// <param name="currentRequests">List of current requests that the system is using.</param>
+        /// <returns>Returns a new unique number that can be added to the request list.</returns>
         public int GenerateRandomRequest(List<int> currentRequests)
         {
             int randomNumber = random.Next(0,100);
@@ -55,9 +65,7 @@ namespace StrategyPattern
             {
                 randomNumber = random.Next(0,100);
             }
-           return randomNumber;
-            
-
+           return randomNumber;           
         }
     }
 }
