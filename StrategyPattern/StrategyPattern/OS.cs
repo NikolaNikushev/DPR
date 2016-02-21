@@ -65,5 +65,10 @@ namespace StrategyPattern
             get { return scheduleType; }
         }
 
+        public int CalculateNextSeek()
+        {
+            return Math.Abs(header - scheduledRequests[0]);
+        }
+
     }
 }

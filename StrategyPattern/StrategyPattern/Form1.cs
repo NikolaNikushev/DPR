@@ -18,6 +18,7 @@ namespace StrategyPattern
         int header;
         int totalCylinders;
         private bool runOnce = true;
+        private int seekTimeTracker;
         OS currentOs; //Used to specify the current operational system that is being used 
                       // OS FCFS;
                       // OS SSTF;
@@ -116,11 +117,14 @@ namespace StrategyPattern
 
         private void ThreadWorker()
         {
+
+
             while (currentOs.ScheduledRequests.Count > 0)
             {
 
                 Thread.Sleep(30);
                 TrackbarChange();
+
 
             }
 
@@ -128,6 +132,9 @@ namespace StrategyPattern
 
         private void RemoveLabelAndUpdateCurrentRequest(int selectedTrackValue)
         {
+            seekTimeTracker += currentOs.CalculateNextSeek();
+            this.Invoke(new Action(() => labCurrentSeek.Text = "Current seek time: " + seekTimeTracker.ToString()));
+            currentOs.UpdateHeader(header);
             List<int> requests = currentOs.ScheduledRequests;
             if (currentOs.ScheduleType is SCAN)
             {
@@ -136,7 +143,9 @@ namespace StrategyPattern
                     curOS.ChangeDirection();
             }
             this.Invoke(new Action(() => DeleteLabel(selectedTrackValue)));
+
             currentOs.ScheduledRequests.RemoveAt(0);
+
 
 
         }
@@ -148,7 +157,6 @@ namespace StrategyPattern
 
             int currrentValue = int.Parse(tbCurrentRequest.Text);
 
-
             this.Invoke(new Action(() => header = trackBarRequest.Value));
 
             int elementZero = currentOs.ScheduledRequests.ElementAt(0);
@@ -158,6 +166,7 @@ namespace StrategyPattern
             else if (header == elementZero)
             {
                 RemoveLabelAndUpdateCurrentRequest(header);
+                this.Invoke(new Action(() => labSeekTime.Text = "Total seek time: " + currentOs.LastSeekTime.ToString()));
                 if (!runOnce)
                     GenerateNewRequest();
                 if (currentOs.ScheduledRequests.Count == 0)
@@ -182,17 +191,20 @@ namespace StrategyPattern
 
         private void GenerateNewRequest()
         {
-            List<int> requests = currentOs.ScheduledRequests;
            
+            List<int> requests = currentOs.ScheduledRequests;
+
             int request = reqGen.GenerateRandomRequest(requests);
             requests.Add(request);
             this.Invoke(new Action(() => CreateLabel(request)));
             currentOs.AddRequest(requests.ToArray());
             currentOs.UpdateHeader(header);
-
+            //need to update seektime 
             currentOs.ExecuteScheduleRequests();
 
             this.Invoke(new Action(() => lbRequests.Items.Add(request.ToString())));
+
+
 
         }
 
@@ -211,6 +223,7 @@ namespace StrategyPattern
 
         private void InitializeSystem()
         {
+            seekTimeTracker = 0;
             ClearLabels();
             this.lbRequests.Items.Clear();
             generatedRequest.Clear();
@@ -248,10 +261,13 @@ namespace StrategyPattern
             {
                 CreateLabel(item);
             }
+            labCurrentSeek.Text = "Current seek time : " + seekTimeTracker;
+            this.Invoke(new Action(() => labSeekTime.Text = "Total seek time: " + currentOs.LastSeekTime.ToString()));
         }
 
         private void btnRunForEver_Click(object sender, EventArgs e)
         {
+
             runOnce = false;
             InitializeSystem();
             InitializeFormRequestElements();
@@ -272,6 +288,11 @@ namespace StrategyPattern
         {
             if (t != null)
                 t.Abort();
+        }
+
+        private void labSeekTime_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

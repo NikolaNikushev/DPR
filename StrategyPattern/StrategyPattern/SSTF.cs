@@ -11,8 +11,9 @@ namespace StrategyPattern
 
         public void ScheduleRequests(int header, int[] requests, ref int seekTime, out List<int> scheduledRequest)
         {
+            seekTime = 0;
             scheduledRequest = new List<int>();
-           
+
             if (!requests.Contains(header))
             {
 
@@ -52,27 +53,28 @@ namespace StrategyPattern
                 int right = -1;
                 if (resultsFromSched.Count <= 1)
                 {
-
-                    resultsFromSched.RemoveAt(indexOfElement);
+                    if (scheduledRequest.Count > requests.Length) scheduledRequest.RemoveAt(0);
                     break;
                 }
 
                 if (indexOfElement + 1 >= resultsFromSched.Count)
                 {
 
-                    
+
                     left = resultsFromSched[indexOfElement - 1];
                     scheduledRequest.Add(left);
-                    resultsFromSched.RemoveAt(indexOfElement - 1);
+                    resultsFromSched.RemoveAt(indexOfElement);
                     seekTime += Math.Abs(header - left);
+                    header = left;
 
                 }
                 else if (indexOfElement - 1 < 0)
                 {
                     right = resultsFromSched[indexOfElement + 1];
                     scheduledRequest.Add(right);
-                    resultsFromSched.RemoveAt(indexOfElement + 1);
+                    resultsFromSched.RemoveAt(indexOfElement);
                     seekTime += Math.Abs(header - right);
+                    header = right;
                 }
                 else
                 {
@@ -90,7 +92,7 @@ namespace StrategyPattern
 
                     }
                     resultsFromSched.RemoveAt(indexOfElement);
-                   
+
                 }
             }
 

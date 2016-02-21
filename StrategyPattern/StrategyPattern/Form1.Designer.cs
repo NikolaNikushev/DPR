@@ -39,6 +39,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbCurrentRequest = new System.Windows.Forms.TextBox();
             this.btnRunForEver = new System.Windows.Forms.Button();
+            this.labSeekTime = new System.Windows.Forms.Label();
+            this.labCurrentSeek = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRequest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,11 +153,32 @@
             this.btnRunForEver.UseVisualStyleBackColor = true;
             this.btnRunForEver.Click += new System.EventHandler(this.btnRunForEver_Click);
             // 
+            // labSeekTime
+            // 
+            this.labSeekTime.AutoSize = true;
+            this.labSeekTime.Location = new System.Drawing.Point(13, 516);
+            this.labSeekTime.Name = "labSeekTime";
+            this.labSeekTime.Size = new System.Drawing.Size(35, 13);
+            this.labSeekTime.TabIndex = 11;
+            this.labSeekTime.Text = "label2";
+            this.labSeekTime.Click += new System.EventHandler(this.labSeekTime_Click);
+            // 
+            // labCurrentSeek
+            // 
+            this.labCurrentSeek.AutoSize = true;
+            this.labCurrentSeek.Location = new System.Drawing.Point(13, 492);
+            this.labCurrentSeek.Name = "labCurrentSeek";
+            this.labCurrentSeek.Size = new System.Drawing.Size(35, 13);
+            this.labCurrentSeek.TabIndex = 12;
+            this.labCurrentSeek.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 537);
+            this.Controls.Add(this.labCurrentSeek);
+            this.Controls.Add(this.labSeekTime);
             this.Controls.Add(this.btnRunForEver);
             this.Controls.Add(this.tbCurrentRequest);
             this.Controls.Add(this.label1);
@@ -190,6 +213,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCurrentRequest;
         private System.Windows.Forms.Button btnRunForEver;
+        private System.Windows.Forms.Label labSeekTime;
+        private System.Windows.Forms.Label labCurrentSeek;
     }
 }
 

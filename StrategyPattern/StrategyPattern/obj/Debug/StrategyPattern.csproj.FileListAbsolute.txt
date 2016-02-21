@@ -1,12 +1,3 @@
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.exe
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.exe.config
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csprojResolveAssemblyReference.cache
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.Form1.resources
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.Properties.Resources.resources
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csproj.GenerateResource.Cache
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.exe
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.pdb
-G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.pdb
 E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.exe.config
 E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.exe
 E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.pdb
@@ -15,3 +6,12 @@ E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\Strateg
 E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csproj.GenerateResource.Cache
 E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.exe
 E:\OneDrive\University\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.pdb
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.exe.config
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.exe
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\bin\Debug\StrategyPattern.pdb
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.Form1.resources
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.Properties.Resources.resources
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csproj.GenerateResource.Cache
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.exe
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.pdb
+G:\Fontys\Fontys\Year2\BLOCK3\DPR\DPR\StrategyPattern\StrategyPattern\obj\Debug\StrategyPattern.csprojResolveAssemblyReference.cache
