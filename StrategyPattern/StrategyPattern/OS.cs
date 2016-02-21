@@ -46,11 +46,11 @@ namespace StrategyPattern
 
         public void ExecuteScheduleRequests()
         {
-          
+
             scheduleType.ScheduleRequests(header, requests, ref seekTime, out scheduledRequests);
         }
 
-        public void AddRequest( int[] requests)
+        public void AddRequest(int[] requests)
         {
             this.requests = requests;
         }
@@ -59,5 +59,11 @@ namespace StrategyPattern
         {
             this.header = value;
         }
+
+        public IScheduleType ScheduleType
+        {
+            get { return scheduleType; }
+        }
+
     }
 }

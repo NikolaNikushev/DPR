@@ -8,7 +8,7 @@ namespace StrategyPattern
 {
     public class SCAN : IScheduleType
     {
-        static int lastDirection = 0; //0 is down, 1 is up
+        int lastDirection = 0; //0 is down, 1 is up
         public void ScheduleRequests(int header, int[] requests, ref int seekTime, out List<int> scheduledRequest)
         {
             scheduledRequest = new List<int>();
@@ -45,8 +45,8 @@ namespace StrategyPattern
 
             List<int> leftSide = resultsFromSched.GetRange(0, indexOfHeader);
             leftSide.Reverse();
-
-            if (lastDirection == 0)
+          
+            if (lastDirection == 0 )
             {
                 scheduledRequest.AddRange(leftSide);
                 scheduledRequest.AddRange(resultsFromSched.GetRange(indexOfHeader + 1, resultsFromSched.Count - leftSide.Count - 1));
@@ -117,6 +117,17 @@ namespace StrategyPattern
             */
 
 
+        }
+
+        public void ChangeDirection()
+        {
+            int direct = this.lastDirection == 0 ?  1 :  0;
+            this.lastDirection = direct;
+        }
+
+        public int CurrentDirection
+        {
+            get { return lastDirection; }
         }
     }
 

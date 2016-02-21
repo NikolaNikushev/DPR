@@ -104,7 +104,7 @@ namespace StrategyPattern
         private void btnRun_Click(object sender, EventArgs e)
         {
             runOnce = true;
-            
+
             InitializeSystem();
             InitializeFormRequestElements();
 
@@ -128,10 +128,17 @@ namespace StrategyPattern
 
         private void RemoveLabelAndUpdateCurrentRequest(int selectedTrackValue)
         {
+            List<int> requests = currentOs.ScheduledRequests;
+            if (currentOs.ScheduleType is SCAN)
+            {
+                SCAN curOS = currentOs.ScheduleType as SCAN;
+                if (header == requests.Max() && curOS.CurrentDirection == 1 || header == requests.Min() && curOS.CurrentDirection == 0)
+                    curOS.ChangeDirection();
+            }
             this.Invoke(new Action(() => DeleteLabel(selectedTrackValue)));
             currentOs.ScheduledRequests.RemoveAt(0);
 
-            
+
         }
 
 
@@ -140,8 +147,8 @@ namespace StrategyPattern
         {
 
             int currrentValue = int.Parse(tbCurrentRequest.Text);
-            
-           
+
+
             this.Invoke(new Action(() => header = trackBarRequest.Value));
 
             int elementZero = currentOs.ScheduledRequests.ElementAt(0);
@@ -176,14 +183,17 @@ namespace StrategyPattern
         private void GenerateNewRequest()
         {
             List<int> requests = currentOs.ScheduledRequests;
+           
             int request = reqGen.GenerateRandomRequest(requests);
             requests.Add(request);
             this.Invoke(new Action(() => CreateLabel(request)));
             currentOs.AddRequest(requests.ToArray());
             currentOs.UpdateHeader(header);
+
             currentOs.ExecuteScheduleRequests();
-           
+
             this.Invoke(new Action(() => lbRequests.Items.Add(request.ToString())));
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -232,7 +242,7 @@ namespace StrategyPattern
 
         private void InitializeFormRequestElements()
         {
-          
+
             tbCurrentRequest.Text = currentOs.ScheduledRequests.ElementAt(0).ToString();
             foreach (int item in currentOs.ScheduledRequests)
             {
@@ -255,7 +265,7 @@ namespace StrategyPattern
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            //stop the current disc reading
+            t.Abort();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
