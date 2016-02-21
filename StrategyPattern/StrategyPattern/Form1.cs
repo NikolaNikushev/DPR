@@ -17,10 +17,11 @@ namespace StrategyPattern
         List<int> generatedRequest;
         int header;
         int totalCylinders;
+        private bool runOnce = true;
         OS currentOs; //Used to specify the current operational system that is being used 
-       // OS FCFS;
-       // OS SSTF;
-       // OS SCAN;
+                      // OS FCFS;
+                      // OS SSTF;
+                      // OS SCAN;
 
         Label[] labelsList = new Label[101];
         public Form1()
@@ -53,12 +54,6 @@ namespace StrategyPattern
 
         }
 
-        private void AddRandomRequest()
-        {
-            reqGen.GenerateRandomRequest(ref generatedRequest);
-
-        }
-
         private void CreateLabel(int value)
         {
 
@@ -79,27 +74,144 @@ namespace StrategyPattern
             Label l = this.labelsList[value];
             if (l != null)
             {
-                
+
                 this.Controls.Remove(l);
 
                 l.Dispose();
                 this.labelsList[value] = null;
             }
-            
-            lbRequests.Items.RemoveAt(0);
-           
+            if (lbRequests.Items.Count > 0)
+                if (lbRequests.Items.IndexOf(value.ToString()) != -1)
+                    lbRequests.Items.RemoveAt(lbRequests.Items.IndexOf(value.ToString()));
+
 
         }
 
+        private void ClearLabels()
+        {
+            foreach (Label l in this.labelsList)
+            {
+                if (l != null)
+                {
+
+                    l.Dispose();
+
+                }
+            }
+        }
+
+        Thread t;
         private void btnRun_Click(object sender, EventArgs e)
         {
-            FillRandomRequests();
+            runOnce = true;
+            
+            InitializeSystem();
+            InitializeFormRequestElements();
 
+            if (t != null) t.Abort();
+            t = new Thread(new ThreadStart(this.ThreadWorker));
+
+            t.Start();
+        }
+
+        private void ThreadWorker()
+        {
+            while (currentOs.ScheduledRequests.Count > 0)
+            {
+
+                Thread.Sleep(30);
+                TrackbarChange();
+
+            }
+
+        }
+
+        private void RemoveLabelAndUpdateCurrentRequest(int selectedTrackValue)
+        {
+            this.Invoke(new Action(() => DeleteLabel(selectedTrackValue)));
+            currentOs.ScheduledRequests.RemoveAt(0);
+
+            
+        }
+
+
+
+        private void TrackbarChange()
+        {
+
+            int currrentValue = int.Parse(tbCurrentRequest.Text);
+            
+           
+            this.Invoke(new Action(() => header = trackBarRequest.Value));
+
+            int elementZero = currentOs.ScheduledRequests.ElementAt(0);
+
+            if (header < elementZero)
+                this.Invoke(new Action(() => trackBarRequest.Value++));
+            else if (header == elementZero)
+            {
+                RemoveLabelAndUpdateCurrentRequest(header);
+                if (!runOnce)
+                    GenerateNewRequest();
+                if (currentOs.ScheduledRequests.Count == 0)
+                {
+                    this.Invoke(new Action(() => tbCurrentRequest.Text = ""));
+
+
+                }
+                else
+                {
+                    this.Invoke(new Action(() => tbCurrentRequest.Text = currentOs.ScheduledRequests.ElementAt(0).ToString()));
+
+                }
+            }
+            else
+            {
+
+                this.Invoke(new Action(() => trackBarRequest.Value--));
+            }
+
+        }
+
+        private void GenerateNewRequest()
+        {
+            List<int> requests = currentOs.ScheduledRequests;
+            int request = reqGen.GenerateRandomRequest(requests);
+            requests.Add(request);
+            this.Invoke(new Action(() => CreateLabel(request)));
+            currentOs.AddRequest(requests.ToArray());
+            currentOs.UpdateHeader(header);
+            currentOs.ExecuteScheduleRequests();
+           
+            this.Invoke(new Action(() => lbRequests.Items.Add(request.ToString())));
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void trackBarRequest_Scroll(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void InitializeSystem()
+        {
+            ClearLabels();
+            this.lbRequests.Items.Clear();
+            generatedRequest.Clear();
+            if (generatedRequest.Count == 0)
+                FillRandomRequests();
+            header = trackBarRequest.Value;
             //runs the FCFS
             if (rbFCFS.Checked == true)
             {
                 currentOs = new OS(new FCFS(), header, generatedRequest.ToArray());
-               
+
 
             }
             //runs the SSTF
@@ -108,78 +220,48 @@ namespace StrategyPattern
                 currentOs = new OS(new SSTF(), header, generatedRequest.ToArray());
             }
             //Runs the RBSCAN
-            else if (rbSCAN.Checked == true) {
+            else if (rbSCAN.Checked == true)
+            {
                 //throws an array exception index ouf range
                 //todo fix
 
                 currentOs = new OS(new SCAN(), header, generatedRequest.ToArray());
             }
-            currentOs.scheduleRequest();
+            currentOs.ExecuteScheduleRequests();
+        }
+
+        private void InitializeFormRequestElements()
+        {
+          
             tbCurrentRequest.Text = currentOs.ScheduledRequests.ElementAt(0).ToString();
             foreach (int item in currentOs.ScheduledRequests)
             {
                 CreateLabel(item);
             }
-            Thread t = new Thread(new ThreadStart(this.TrackBarChangeValue));
-
-            t.Start();
-        }
-
-        private void TrackBarChangeValue()
-        {
-            while (currentOs.ScheduledRequests.Count > 0)
-            {
-                Thread.Sleep(1);
-                int currrentValue = int.Parse(tbCurrentRequest.Text);
-                int selectedTrackValue = trackBarRequest.Value;
-
-                int elementZero = currentOs.ScheduledRequests.ElementAt(0);
-
-                if (selectedTrackValue < elementZero)
-                    trackBarRequest.Value++;
-                else if (selectedTrackValue == elementZero)
-                {
-                    DeleteLabel(selectedTrackValue);
-                    currentOs.ScheduledRequests.RemoveAt(0);
-                    if (currentOs.ScheduledRequests.Count == 0)
-                    {
-                        tbCurrentRequest.Text = "";
-                        break;
-
-                    }
-                    else
-                    {
-                        tbCurrentRequest.Text = currentOs.ScheduledRequests.ElementAt(0).ToString();
-
-                    }
-                }
-                else
-                {
-
-                    trackBarRequest.Value--;
-                }
-            }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackBarRequest_Scroll(object sender, EventArgs e)
-        {
-
-
         }
 
         private void btnRunForEver_Click(object sender, EventArgs e)
         {
-            //Make call to GenerateRandomRequest after each delete label and update the request 
+            runOnce = false;
+            InitializeSystem();
+            InitializeFormRequestElements();
+
+
+            if (t != null) t.Abort();
+            t = new Thread(new ThreadStart(this.ThreadWorker));
+
+            t.Start();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             //stop the current disc reading
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (t != null)
+                t.Abort();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace ScheduleTypeTests
             int header = 50;
             OS FCFS = new OS(new FCFS(), header, requests);
 
-            FCFS.scheduleRequest();
+            FCFS.ExecuteScheduleRequests();
             List<int> result = FCFS.ScheduledRequests;
 
             List<int> expectedResult = new List<int>()
@@ -46,7 +46,7 @@ namespace ScheduleTypeTests
             int header = 50;
             OS SSTF = new OS(new SSTF(), header, requests);
 
-            SSTF.scheduleRequest();
+            SSTF.ExecuteScheduleRequests();
             List<int> result = SSTF.ScheduledRequests;
 
             List<int> expectedResult = new List<int>()
@@ -79,7 +79,7 @@ namespace ScheduleTypeTests
             int header = 50;
             OS SCAN = new OS(new SCAN(), header, requests);
 
-            SCAN.scheduleRequest();
+            SCAN.ExecuteScheduleRequests();
             List<int> result = SCAN.ScheduledRequests;
 
             List<int> expectedResult = new List<int>()

@@ -8,6 +8,6 @@ namespace StrategyPattern
 {
     public interface IScheduleType
     {
-        void ScheduleRequests(int header,int[] requests,out int seekTime, out List<int> scheduledRequest);
+        void ScheduleRequests(int header,int[] requests,ref int seekTime, out List<int> scheduledRequest);
     }
 }

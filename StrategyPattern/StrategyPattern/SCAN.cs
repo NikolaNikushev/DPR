@@ -8,7 +8,8 @@ namespace StrategyPattern
 {
     public class SCAN : IScheduleType
     {
-        public void ScheduleRequests(int header, int[] requests, out int seekTime, out List<int> scheduledRequest)
+        static int lastDirection = 0; //0 is down, 1 is up
+        public void ScheduleRequests(int header, int[] requests, ref int seekTime, out List<int> scheduledRequest)
         {
             scheduledRequest = new List<int>();
             seekTime = 0;
@@ -37,11 +38,30 @@ namespace StrategyPattern
 
 
             List<int> resultsFromSched = requests.ToList(); //using List<int> instead of array
-            resultsFromSched.Insert(0, 0);
-            resultsFromSched.Add(99);
+            //resultsFromSched.Insert(0, 0);
+            //resultsFromSched.Add(99);
             int indexOfHeader = resultsFromSched.IndexOf(header); //the index of the header in the List<int>
 
-            int direction = 0;
+
+            List<int> leftSide = resultsFromSched.GetRange(0, indexOfHeader);
+            leftSide.Reverse();
+
+            if (lastDirection == 0)
+            {
+                scheduledRequest.AddRange(leftSide);
+                scheduledRequest.AddRange(resultsFromSched.GetRange(indexOfHeader + 1, resultsFromSched.Count - leftSide.Count - 1));
+            }
+            if (lastDirection == 1)
+            {
+                scheduledRequest.AddRange(resultsFromSched.GetRange(indexOfHeader + 1, resultsFromSched.Count - leftSide.Count - 1));
+                scheduledRequest.AddRange(leftSide);
+            }
+            for (int i = 0; i < scheduledRequest.Count; i++)
+            {
+                seekTime += Math.Abs(header - scheduledRequest[i]);
+                header = scheduledRequest[i];
+            }
+            /*int direction = 0;
             while (resultsFromSched.Count > 2)
             {
                 if (indexOfHeader == 0)
@@ -94,8 +114,9 @@ namespace StrategyPattern
                     }
                 }
             }
+            */
 
-      
+
         }
     }
 

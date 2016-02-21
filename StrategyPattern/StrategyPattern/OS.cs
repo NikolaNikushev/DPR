@@ -25,10 +25,13 @@ namespace StrategyPattern
             }
         }
 
+        object l = new object();
+
         public List<int> ScheduledRequests
         {
             get
             {
+                lock (l)
                 return scheduledRequests;
             }
         }
@@ -41,10 +44,20 @@ namespace StrategyPattern
             requests = p_requests;
         }
 
-        public void scheduleRequest()
+        public void ExecuteScheduleRequests()
         {
-            seekTime = 0;
-            scheduleType.ScheduleRequests(header, requests, out seekTime, out scheduledRequests);
+          
+            scheduleType.ScheduleRequests(header, requests, ref seekTime, out scheduledRequests);
+        }
+
+        public void AddRequest( int[] requests)
+        {
+            this.requests = requests;
+        }
+
+        public void UpdateHeader(int value)
+        {
+            this.header = value;
         }
     }
 }

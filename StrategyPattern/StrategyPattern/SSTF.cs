@@ -9,10 +9,10 @@ namespace StrategyPattern
     public class SSTF : IScheduleType
     {
 
-        public void ScheduleRequests(int header, int[] requests, out int seekTime, out List<int> scheduledRequest)
+        public void ScheduleRequests(int header, int[] requests, ref int seekTime, out List<int> scheduledRequest)
         {
             scheduledRequest = new List<int>();
-            seekTime = 0;
+           
             if (!requests.Contains(header))
             {
 
@@ -57,7 +57,7 @@ namespace StrategyPattern
                     break;
                 }
 
-                if (indexOfElement + 1 > resultsFromSched.Count)
+                if (indexOfElement + 1 >= resultsFromSched.Count)
                 {
 
                     

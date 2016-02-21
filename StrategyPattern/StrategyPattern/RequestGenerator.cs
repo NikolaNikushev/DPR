@@ -48,14 +48,15 @@ namespace StrategyPattern
             return result;
         }
 
-        public void GenerateRandomRequest(ref List<int> currentRequests)
+        public int GenerateRandomRequest(List<int> currentRequests)
         {
             int randomNumber = random.Next(0,100);
             while (currentRequests.Contains(randomNumber))
             {
                 randomNumber = random.Next(0,100);
             }
-            currentRequests.Add(randomNumber);
+           return randomNumber;
+            
 
         }
     }

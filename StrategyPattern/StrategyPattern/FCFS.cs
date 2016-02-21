@@ -8,7 +8,7 @@ namespace StrategyPattern
 {
     public class FCFS : IScheduleType
     {
-        public void ScheduleRequests(int header, int[] requests, out int seekTime,out List<int> scheduledRequest)
+        public void ScheduleRequests(int header, int[] requests, ref int seekTime,out List<int> scheduledRequest)
         {
             scheduledRequest = new List<int>();
             int lastRequest = 0;
