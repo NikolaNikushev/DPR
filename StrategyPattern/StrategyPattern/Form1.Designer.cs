@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGnrtReq = new System.Windows.Forms.Button();
             this.lbRequests = new System.Windows.Forms.ListBox();
             this.rbFCFS = new System.Windows.Forms.RadioButton();
             this.rbSSTF = new System.Windows.Forms.RadioButton();
@@ -43,16 +42,6 @@
             this.labCurrentSeek = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRequest)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnGnrtReq
-            // 
-            this.btnGnrtReq.Location = new System.Drawing.Point(412, 384);
-            this.btnGnrtReq.Name = "btnGnrtReq";
-            this.btnGnrtReq.Size = new System.Drawing.Size(133, 38);
-            this.btnGnrtReq.TabIndex = 0;
-            this.btnGnrtReq.Text = "Generate Request";
-            this.btnGnrtReq.UseVisualStyleBackColor = true;
-            this.btnGnrtReq.Click += new System.EventHandler(this.btnGnrtReq_Click);
             // 
             // lbRequests
             // 
@@ -188,7 +177,6 @@
             this.Controls.Add(this.rbSSTF);
             this.Controls.Add(this.rbFCFS);
             this.Controls.Add(this.lbRequests);
-            this.Controls.Add(this.btnGnrtReq);
             this.Controls.Add(this.trackBarRequest);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -201,8 +189,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnGnrtReq;
         private System.Windows.Forms.ListBox lbRequests;
         private System.Windows.Forms.RadioButton rbFCFS;
         private System.Windows.Forms.RadioButton rbSSTF;
